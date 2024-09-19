@@ -1,18 +1,18 @@
-# Voroni Tessellation
+# Voronoi Tessellation
 
 Given a canvas of `width x height` and a number of `seed` points (random by default), use the
-Voroni tessellation algorithm to create the cells based on different metrics.
+Voronoi tessellation algorithm to create the cells based on different metrics.
 
 ## Various Metrics
 
-* [Euclidean Metric](images/voroni_euclidean.png)
-* [Manhattan Metric](images/voroni_manhattan.png)
-* [Maximum Metric](images/voroni_maximum.png)
-* [Minimum Metric: Euclidean](images/voroni_minimum(euclidean).png)
-* [Minkowski, p=1](images/voroni_minkowski(1.0).png) - equivalent to Manhattan
-* [Minkowski, p=2](images/voroni_minkowski(2.0).png) - equivalent to Euclidean
-* [Minkowski, p=3](images/voroni_minkowski(3.0).png)
-* [Minkowski, p=4](images/voroni_minkowski(4.0).png)
+* [Euclidean Metric](images/voronoi_euclidean.png)
+* [Manhattan Metric](images/voronoi_manhattan.png)
+* [Maximum Metric](images/voronoi_maximum.png)
+* [Minimum Metric: Euclidean](images/voronoi_minimum(euclidean).png)
+* [Minkowski, p=1](images/voronoi_minkowski(1.0).png) - equivalent to Manhattan
+* [Minkowski, p=2](images/voronoi_minkowski(2.0).png) - equivalent to Euclidean
+* [Minkowski, p=3](images/voronoi_minkowski(3.0).png)
+* [Minkowski, p=4](images/voronoi_minkowski(4.0).png)
 
 
 ## Metrics with Celestial Coordinates and Applications to Telescopes

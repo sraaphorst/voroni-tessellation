@@ -29,7 +29,7 @@ data class Point(val x: Int, val y: Int) {
  * [startX, endX) x [startY, endY) and the collection of seeds, determine for each pixel
  * in the given area what seed it is closest to and color it.
  */
-suspend fun calculateVoroniChunk(startX: Int, endX: Int,
+suspend fun calculateVoronoiChunk(startX: Int, endX: Int,
                                  startY: Int, endY: Int,
                                  seeds: Collection<Point>,
                                  metric: Metric,
@@ -45,10 +45,10 @@ suspend fun calculateVoroniChunk(startX: Int, endX: Int,
 }
 
 /**
- * The coroutine entry point that generates the actual Voroni diagram, returning it as a
+ * The coroutine entry point that generates the actual Voronoi diagram, returning it as a
  * BufferedImage.
  */
-suspend fun generateVoroni(width: Int, height: Int,
+suspend fun generateVoronoi(width: Int, height: Int,
                            seeds: Collection<Point>,
                            metric: Metric,
                            colors: List<Color>): BufferedImage {
@@ -64,7 +64,7 @@ suspend fun generateVoroni(width: Int, height: Int,
 
             // Create and launch the job.
             jobs.add(launch {
-                calculateVoroniChunk(0, width, i, endY, seeds, metric, colors, img)
+                calculateVoronoiChunk(0, width, i, endY, seeds, metric, colors, img)
             })
         }
 
@@ -97,10 +97,10 @@ fun main() = runBlocking {
     val numSeeds = 45
     val seedRadius = 4
 
-    // Generate the seeds for each of the Voroni cells.
+    // Generate the seeds for each of the Voronoi cells.
     val seeds = generateRandomSeeds(width, height, numSeeds)
 
-    // Create enough colours to colour each of the Voroni cells. If not specified, we use default
+    // Create enough colours to colour each of the Voronoi cells. If not specified, we use default
     // colours defined in Color, provided there are enough: otherwise, we create random ones.
     val colors = if (Point.COLORS.size >= numSeeds) Point.COLORS else {
         List(numSeeds) { Color(random.nextInt(256), random.nextInt(256), random.nextInt(256)) }
@@ -122,9 +122,9 @@ fun main() = runBlocking {
         MinkowskiDistanceMetric(4.0)
     ).forEach { metric ->
         val timeTaken = measureTimeMillis {
-            val img = generateVoroni(width, height, seeds, metric, colors)
+            val img = generateVoronoi(width, height, seeds, metric, colors)
             renderSeeds(seeds, img, seedRadius)
-            ImageIO.write(img, "png", File(directory, "voroni_$metric.png"))
+            ImageIO.write(img, "png", File(directory, "voronoi_$metric.png"))
         }
 
         // Statistics
