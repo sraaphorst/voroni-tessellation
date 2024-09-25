@@ -112,14 +112,19 @@ fun main() = runBlocking {
 
     // Comment this out to avoid generating Voronoi diagrams for all metrics.
     listOf(
+        CanberraMetric,
         EuclideanMetric,
+        HammingMetric,
+        MahalanobisMetric(seeds),
         ManhattanMetric,
         MaximumMetric,
         MinimumMetric(EuclideanMetric),
-        MinkowskiDistanceMetric(1.0),
-        MinkowskiDistanceMetric(2.0),
-        MinkowskiDistanceMetric(3.0),
-        MinkowskiDistanceMetric(4.0)
+        MinkowskiMetric(1.0),
+        MinkowskiMetric(1.5),
+        MinkowskiMetric(2.0),
+        MinkowskiMetric(2.5),
+        MinkowskiMetric(3.0),
+        MinkowskiMetric(4.0)
     ).forEach { metric ->
         val timeTaken = measureTimeMillis {
             val img = generateVoronoi(width, height, seeds, metric, colors)
