@@ -15,7 +15,7 @@ Voronoi tessellation algorithm to create the cells based on different metrics.
 * [Minkowski, p=3](images/voronoi_minkowski(3.0).png)
 * [Minkowski, p=4](images/voronoi_minkowski(4.0).png)
 * [Maximum Metric](images/voronoi_maximum.png)
-* [Cenberra](images/voronoi_canberra.png)
+* [Canberra](images/voronoi_canberra.png)
 * [Mahalanobis](images/voronoi_mahalanobis.png)
 * [Hamming](images/voronoi_hamming.png)
 
